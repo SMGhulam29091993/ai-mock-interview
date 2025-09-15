@@ -16,12 +16,12 @@ interface Feedback {
 interface Interview {
   id: string;
   role: string;
-  level: string;
+  level: InterviewLevel;
   questions: string[];
   techstack: string[];
   createdAt: string;
   userId: string;
-  type: string;
+  type: InterviewType;
   finalized: boolean;
 }
 
@@ -39,12 +39,15 @@ interface User {
 }
 
 interface InterviewCardProps {
-  interviewId?: string;
-  userId?: string;
+  id: string;
+  userId: string;
   role: string;
-  type: string;
+  type: InterviewType;
   techstack: string[];
-  createdAt?: string;
+  level: InterviewLevel;
+  questions: string[];
+  finalized: boolean;
+  createdAt: string;
 }
 
 interface AgentProps {
@@ -95,5 +98,19 @@ interface InterviewFormProps {
 }
 
 interface TechIconProps {
-  techStack: string[];
+  techstack: string[];
+}
+
+enum InterviewType {
+  "Technical" = "Technical",
+  "HR" = "HR",
+  "Mixed" = "Mixed",
+}
+
+enum InterviewLevel {
+  "Internship" = "Internship",
+  "Junior" = "Junior",
+  "Mid" = "Mid",
+  "Senior" = "Senior",
+  "Lead" = "Lead",
 }
